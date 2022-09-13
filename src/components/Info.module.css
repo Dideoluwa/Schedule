@@ -1,0 +1,11 @@
+.body div h1 {
+    margin-right: 12px;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.body div h3 {
+    margin-top: 90px;
+    margin-right: 22px;
+    /* color: #4aa4fe; */
+}

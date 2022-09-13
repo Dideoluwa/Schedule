@@ -1,0 +1,32 @@
+.body{
+    background-color: white;
+    border-top: 0.5px solid black;
+}
+
+.body_inner{
+    margin: 12px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.next a button{
+    background-color: #4aa4fe;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+.next a button:disabled{
+    background-color: #aed4fb;
+    cursor: no-drop;
+}
+.next a {
+    text-decoration: none;
+    color: white;
+}
+
+.back{
+    cursor: pointer;
+}
