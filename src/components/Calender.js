@@ -6,30 +6,37 @@ import Info from './Info'
 import Time from './Time'
 import { Route, Routes } from 'react-router'
 import Form from './Form'
+// import Nav from './Nav'
 
 function Calender(props) {
     let [show, setShow] = useState(false)
     return (
         <div className='main__wrapper'>
             <div className="calendar-container">
-                <Info dates={props.dates} show={show} timer={props.timer} />
+                <div className='calender__info'>
+                    <Info dates={props.dates} show={show} timer={props.timer} />
+                </div>
                 <Routes>
                     <Route path='/' element={
-                        <div className='container'>
-                            <div>
-                                <div className="calendar-container__inner">
-                                    <div className="calendar-container__header">
-                                        <DateInfo date={props.date} />
+                        <div>
+                            <div className='container'>
+                                <div>
+                                    <div className="calendar-container__inner">
+                                        <div className="calendar-container__header">
+                                            <DateInfo date={props.date} />
+                                        </div>
+                                        <Calendar minDate={new Date()} onChange={props.onChange} value={props.date} />
                                     </div>
-                                    <Calendar minDate={new Date()} onChange={props.onChange} value={props.date} />
+                                </div>
+                                <div>
+                                    <Time setShow={setShow} setTimer={props.setTimer} setIsActive={props.setIsActive} time={props.time} />
                                 </div>
                             </div>
-                            <div>
-                                <Time setShow={setShow} setTimer={props.setTimer} setIsActive={props.setIsActive} time={props.time} />
-                            </div>
                         </div>
-                    } />
-                    <Route path = '/form' element ={<Form />}/>
+                    }>
+
+                    </Route>
+                    <Route path='/form' element={<Form setIsActive={props.setIsActive} />} />
                 </Routes>
             </div>
         </div>

@@ -1,23 +1,34 @@
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router'
+// import { Link, useNavigate } from 'react-router-dom'
 import styles from './Nav.module.css'
 
 function Nav(props) {
-    let navigate = useNavigate()
-    let navigateBackHAndler = () => {
-        navigate('/')
-    }
+    let [text, setText] = useState('')
+    let { pathname } = useLocation()
+
+    useEffect(() => {
+        if (pathname === '/form') {
+            setText('Submit')
+        } else {
+            setText('Next')
+        }
+    }, [pathname])
+
     return (
         <div className={styles.body}>
             <div className={styles.body_inner}>
                 <div
-                    onClick={navigateBackHAndler}
+                    onClick={props.onClick}
                     className={styles.back}
                 >
                     <h3>&larr; Back</h3>
                 </div>
                 <div className={styles.next}>
-                    <Link to='/form'><button disabled={!props.isActive}>Next</button></Link>
+                    <button
+                        onSubmit={props.onSubmit}
+                        onClick={props.onClickFor}
+                        disabled={!props.disabled}>{text}</button>
                 </div>
             </div>
         </div>

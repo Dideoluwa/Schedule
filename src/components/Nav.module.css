@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-.next a button {
+.next  button {
     background-color: #4aa4fe;
     border: none;
     border-radius: 5px;
@@ -20,12 +20,12 @@
     color: white;
 }
 
-.next a button:disabled {
+.next  button:disabled {
     background-color: #aed4fb;
     cursor: no-drop;
 }
 
-.next a {
+.next {
     text-decoration: none;
     color: white;
 }

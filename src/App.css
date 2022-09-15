@@ -7,5 +7,6 @@
 .calendar-container1{
     box-shadow: 20px 20px 50px rgb(168, 168, 168);
     margin: auto;
+    width: 58vw;
     border-radius: 12px;
 }

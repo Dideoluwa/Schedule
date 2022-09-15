@@ -3,6 +3,10 @@ import Calender from './components/Calender'
 import Nav from './components/Nav'
 import './App.css'
 import sound from './assets/alarm.wav'
+import { useNavigate } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router'
+// import { Route, Routes } from 'react-router'
+
 
 
 
@@ -14,6 +18,7 @@ function App() {
   let [currTime, setCurrTime] = useState('')
   let [currDate, setCurrDate] = useState('')
   let [dates, setDates] = useState('')
+  let { pathname } = useLocation()
   let demo = new Audio(sound)
   let time = ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30"]
   useEffect(() => {
@@ -50,12 +55,35 @@ function App() {
   if (soundPlay) {
     demo.play();
   }
+  let navigate = useNavigate()
+  let navigateBackHAndler = () => {
+    if (pathname === '/success-page') {
+      navigate('/form')
+    } else {
+      navigate('/')
+    }
+  }
+
+  let navigateForwardHAndler = () => {
+    if (pathname === '/form') {
+      navigate('/success-page')
+    } else {
+      navigate('/form')
+    }
+  }
+
 
   return (
     <div className='main__wrapper1'>
       <div className='calendar-container1'>
-         <Calender dates={dates} setIsActive={setIsActive} timer={timer} setTimer={setTimer} time={time} date={date} onChange={setDate} />
-        <Nav isActive={isActive} />
+        {/* <Routes> */}
+          {/* <Route element={ */}
+            {/* <div> */}
+              <Calender isActive={isActive} dates={dates} setIsActive={setIsActive} timer={timer} setTimer={setTimer} time={time} date={date} onChange={setDate} />
+              <Nav onClickFor={navigateForwardHAndler} onClick={navigateBackHAndler} disabled={isActive} />
+            {/* </div> */}
+          {/* } /> */}
+        {/* </Routes> */}
       </div>
     </div>
   )
