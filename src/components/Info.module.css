@@ -1,11 +1,25 @@
-.body div h1 {
-    margin-right: 12px;
-    margin-top: 20px;
-    font-weight: 700;
+.date div h3 {
+    font-size: 15px;
 }
-
-.body div h3 {
-    margin-top: 90px;
-    margin-right: 22px;
-    /* color: #4aa4fe; */
+.date div h4{
+    font-size: 13px;
+    color: rgb(72, 72, 72);
+}
+.date div{
+    margin: 10px 10px;
+}
+.date{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(136, 194, 251, 0.693);
+    margin-right: 14px;
+    border-radius: 5px;
+}
+.body h1{
+   font-size: 25px;
+   margin: 5px 5px;
+}
+.body h2{
+    font-size: 20px;
+    margin: 15px 5px;
 }

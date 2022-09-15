@@ -14,7 +14,7 @@ function Nav(props) {
                     onClick={navigateBackHAndler}
                     className={styles.back}
                 >
-                    <h3>Back</h3>
+                    <h3>&larr; Back</h3>
                 </div>
                 <div className={styles.next}>
                     <Link to='/form'><button disabled={!props.isActive}>Next</button></Link>

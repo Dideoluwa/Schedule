@@ -11,6 +11,10 @@
     /* height: 50vh; */
 }
 
+.container{
+    display: flex;
+}
+
 .calendar-container .calendar-container__time {
     justify-content: center;
     align-items: center;
