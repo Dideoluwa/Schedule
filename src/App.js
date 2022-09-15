@@ -5,9 +5,8 @@ import './App.css'
 import sound from './assets/alarm.wav'
 import { useNavigate } from 'react-router-dom'
 import { Route, Routes, useLocation } from 'react-router'
-// import { Route, Routes } from 'react-router'
-
-
+import Form from './components/Form'
+import Schedule from './components/Schedule'
 
 
 function App() {
@@ -71,19 +70,23 @@ function App() {
       navigate('/form')
     }
   }
+  let [show, setShow] = useState(false)
 
 
   return (
     <div className='main__wrapper1'>
-      <div className='calendar-container1'>
-        {/* <Routes> */}
-          {/* <Route element={ */}
-            {/* <div> */}
-              <Calender isActive={isActive} dates={dates} setIsActive={setIsActive} timer={timer} setTimer={setTimer} time={time} date={date} onChange={setDate} />
-              <Nav onClickFor={navigateForwardHAndler} onClick={navigateBackHAndler} disabled={isActive} />
-            {/* </div> */}
-          {/* } /> */}
-        {/* </Routes> */}
+      <div className='calendar-container2'>
+        <div className='calendar-container1'>
+          <Routes>
+            <Route path='/' element={<Calender show={show} dates={dates} timer={timer} />}>
+              <Route path='/' element={<Schedule  show={show} setShow={setShow} isActive={isActive} setIsActive={setIsActive} timer={timer} setTimer={setTimer} time={time} date={date} onChange={setDate}/>} />
+              <Route path='form' element={<Form setIsActive={setIsActive} />} />
+            </Route>
+          </Routes>
+        </div>
+        <div>
+          <Nav onClickFor={navigateForwardHAndler} onClick={navigateBackHAndler} disabled={isActive} />
+        </div>
       </div>
     </div>
   )

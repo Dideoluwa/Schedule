@@ -4,9 +4,14 @@
     flex-direction: column;
 }
 
+.calendar-container2{
+    margin: auto;
+    border-radius: 12px;
+}
+
 .calendar-container1{
     box-shadow: 20px 20px 50px rgb(168, 168, 168);
-    margin: auto;
+    /* margin: auto; */
     width: 58vw;
-    border-radius: 12px;
+    display: flex;
 }
