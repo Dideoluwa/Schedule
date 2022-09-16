@@ -108,8 +108,6 @@ function Form(props) {
                         />
                         {emailNotValid && <p>Email must be inputed</p>}
                     </div>
-
-                    {/* <button>Submit</button> */}
                 </form>
             </div>
         </div>

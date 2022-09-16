@@ -2,7 +2,7 @@ import React from 'react'
 import './Calender.css'
 import Info from './Info'
 import { Outlet } from 'react-router'
-// import Nav from './Nav'
+import Nav from './Nav'
 
 function Calender(props) {
     return (
@@ -11,11 +11,11 @@ function Calender(props) {
                 <div className='calender__info'>
                     <Info dates={props.dates} show={props.show} timer={props.timer} />
                 </div>
-                <div>
-                   <Outlet /> 
+                <div className='outlet'>
+                <Outlet />
                 </div>
-                
             </div>
+            <Nav onSubmit = {props.onSubmit} onClickFor={props.onClickFor} onClick={props.onClick} disabled={props.disabled} />
         </div>
     )
 }
