@@ -1,7 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 import styles from './SuccessPage.module.css'
 
 function SuccessPage(props) {
+    let navigate = useNavigate()
+    let homeNavigateHandler = () =>{
+       navigate('/')
+    }
     return (
         <div className={styles.body}>
             <div className={styles.svg_wrapper}>
@@ -28,7 +33,9 @@ function SuccessPage(props) {
                 </div>
             </div>
             <div className={styles.buttons}>
-                <button>Get back home</button>
+                <button
+                onClick={homeNavigateHandler}
+                >Get back home</button>
                 <div>
                     <p>Resend Email</p>
                 </div>
