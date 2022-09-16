@@ -66,8 +66,8 @@ function App() {
 
   let navigateForwardHAndler = () => {
     if (pathname === '/form') {
-      console.log('done')
-      navigate('/final')
+      // console.log(nameInput)
+     navigate('/final')
     } else {
       navigate('/form')
     }
@@ -81,7 +81,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Calender onClickFor={navigateForwardHAndler} onClick={navigateBackHAndler} disabled={isActive} show={show} dates={dates} timer={timer} />}>
               <Route path='/' element={<Schedule show={show} setShow={setShow} isActive={isActive} setIsActive={setIsActive} timer={timer} setTimer={setTimer} time={time} date={date} onChange={setDate} />} />
-              <Route path='form' element={<Form setIsActive={setIsActive} />} />
+              <Route path='form' element={<Form onClick={navigateForwardHAndler} setIsActive={setIsActive} />} />
             </Route>
             <Route path='/final' element={<SuccessPage />} />
           </Routes>

@@ -25,6 +25,7 @@ function Form(props) {
 
     let textChangeHandler = (e) => {
         setTask(e.target.value)
+        // props.onClick(task)
         setNameNotValid(false)
     }
 
@@ -76,7 +77,7 @@ function Form(props) {
                         <input
 
                             type='text'
-                            placeholder='Finishing design'
+                            placeholder='Please Enter your name'
                             value={task}
                             onChange={textChangeHandler}
                             onBlur={textBlurHandler}
@@ -89,6 +90,7 @@ function Form(props) {
                         <input
 
                             type='number'
+                            placeholder='Please Enter your phone number'
                             value={phoneNumber}
                             onChange={numberChangeHandler}
                             onBlur={phoneBlurHandler}
@@ -101,6 +103,7 @@ function Form(props) {
                         <input
 
                             type='email'
+                            placeholder='Please Enter your email'
                             value={email}
                             onChange={emailChangeHandler}
                             onBlur={emailBlurHandler}

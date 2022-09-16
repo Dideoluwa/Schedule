@@ -26,6 +26,7 @@ function Nav(props) {
                 </div>
                 <div className={styles.next}>
                     <button
+                        type='submit'
                         onSubmit={props.onSubmit}
                         onClick={props.onClickFor}
                         disabled={!props.disabled}>{text}</button>
