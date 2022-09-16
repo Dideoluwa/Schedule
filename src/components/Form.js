@@ -4,24 +4,23 @@ import styles from './Form.module.css'
 function Form(props) {
     let [task, setTask] = useState('')
     let [phoneNumber, setPhoneNumber] = useState('')
-    let [email, setEmail] = useState('')
     let [emailNotValid, setEmailNotValid] = useState(false)
     let [phoneNotValid, setPhoneNotValid] = useState(false)
     let [nameNotValid, setNameNotValid] = useState(false)
 
     useEffect(() => {
-        if (task.trim().length >= 1 && phoneNumber.trim().length >= 1 && email.includes('@') && email.includes('.com')) {
+        if (task.trim().length >= 1 && phoneNumber.trim().length >= 1 && props.email.includes('@') && props.email.includes('.com')) {
             props.setIsActive(true)
         } else {
             props.setIsActive(false)
         }
-    }, [props, task, phoneNumber, email])
+    }, [props, task, phoneNumber, props.email])
 
     useEffect(() => {
-        if (email.trim().length >= 1 && email.includes('@') && email.includes('.com')) {
+        if (props.email.trim().length >= 1 && props.email.includes('@') && props.email.includes('.com')) {
             setEmailNotValid(false)
         }
-    }, [email])
+    }, [props.email])
 
     let textChangeHandler = (e) => {
         setTask(e.target.value)
@@ -35,7 +34,7 @@ function Form(props) {
     }
 
     let emailChangeHandler = (e) => {
-        setEmail(e.target.value)
+        props.setEmail(e.target.value)
         // setEmailNotValid(false)
     }
     let formSubmitHandler = () => {
@@ -49,7 +48,7 @@ function Form(props) {
         }
     }
     let emailBlurHandler = () => {
-        if (email.trim().length === 0 && !email.includes('@') && !email.includes('.com')) {
+        if (props.email.trim().length === 0 && !props.email.includes('@') && !props.email.includes('.com')) {
             setEmailNotValid(true)
         } else {
             setEmailNotValid(false)
@@ -104,7 +103,7 @@ function Form(props) {
 
                             type='email'
                             placeholder='Please Enter your email'
-                            value={email}
+                            value={props.email}
                             onChange={emailChangeHandler}
                             onBlur={emailBlurHandler}
                             required
