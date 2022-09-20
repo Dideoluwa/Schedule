@@ -1,6 +1,7 @@
 const mailer = require("nodemailer");
 const { Hello } = require("./hello_template");
 const { Thanks } = require("./thanks_template");
+require('dotenv').config()
 
 const getEmailData = (to, name, template) => {
     let data = null;
@@ -35,8 +36,8 @@ const sendEmail = (to, name, type) => {
     const smtpTransport = mailer.createTransport({
         service: "Gmail",
         auth: {
-            user: "",
-            pass: ""
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
         }
     })
 
