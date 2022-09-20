@@ -57,7 +57,7 @@
 .calendar-container__time__inner {
     width: 10vw;
     height: 50vh;
-    overflow: auto;
+    overflow: auto; 
 }
 
 .activeButton {

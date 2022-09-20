@@ -84,7 +84,7 @@ function App() {
               <Route path='/' element={<Schedule show={show} setShow={setShow} isActive={isActive} setIsActive={setIsActive} timer={timer} setTimer={setTimer} time={time} date={date} onChange={setDate} />} />
               <Route path='form' element={<Form email ={email} setEmail ={setEmail} onClick={navigateForwardHAndler} setIsActive={setIsActive} />} />
             </Route>
-            <Route path='/final' element={<SuccessPage email ={email} dates={dates} timer={timer} />} />
+            <Route path='/final' element={<SuccessPage email ={email}  dates={dates} timer={timer} />} />
           </Routes>
         </div>
         <div>
