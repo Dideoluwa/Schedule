@@ -1,11 +1,8 @@
 const mailer = require("nodemailer");
 const { Hello } = require("./hello_template");
-const { Thanks } = require("./thanks_template");
 const dotenv = require('dotenv');
 dotenv.config()
 
-console.log(process.env.EMAIL)
-console.log(process.env.PASSWORD)
 const getEmailData = (to, name, template) => {
     let data = null;
 
@@ -16,15 +13,6 @@ const getEmailData = (to, name, template) => {
                 to,
                 subject: `Hello ${name}`,
                 html: Hello()
-            }
-            break;
-
-        case "thanks":
-            data = {
-                from: "Darasimi Oni <dideoluwaoni@gmail.com>",
-                to,
-                subject: `Hello ${name}`,
-                html: Thanks()
             }
             break;
         default:
@@ -39,8 +27,8 @@ const sendEmail = (to, name, type) => {
     let smtpTransport = mailer.createTransport({
         service: "Gmail",
         auth: {
-            user: process.env.EMAIL,
-            pass: process.env.PASSWORD
+            user: 'darasimidideoluwa@gmail.com',
+            pass: 'tocsxttxooendrxh'
         }
     })
 

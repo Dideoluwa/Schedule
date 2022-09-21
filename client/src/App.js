@@ -90,11 +90,7 @@ function App() {
       name,
       email
     }
-  //   axios.post("https://email-urfl.onrender.com",dataToSubmit)
-  //   setEmail('')
-  //   setName('')
-  // }
-    axios.post("/api/sendMail",dataToSubmit)
+    axios.post("/api/sendMail", dataToSubmit)
     setEmail('')
     setName('')
   }
